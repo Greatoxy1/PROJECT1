@@ -6,11 +6,11 @@ function toggleContent() {
         content.style.display = "none";
     }
 }
-
+function showInfo() {
+    document.getElementById('info').style.display = 'block';
+}
 async function getWeather() {
     const location = document.getElementById('Berlin').value;
-    const apiKey = 'bmipqdoya1z88htko8vff1rfwz4w5s02v1vo1bpe';
-    const url = `hrce.com/api/v1/free/point?place_id=berlin&sections=current%2Cdaily&language=en&units=auto&key=${apiKey}`;
 
 
     try {
@@ -27,9 +27,12 @@ async function getWeather() {
         }
     } catch (error) {
         document.getElementById('weather-container').innerHTML = `<p>Unable to fetch weather data.</p>`;
+       
+    const apiKey =["s7wdm7ovkypadk8vf4rxe961mph99kob8voibz9p"];
+    const url="(curl -X 'GET' \ 'https://www.meteosource.com/api/v1/free/point?place_id=Berlin&lat=50&lon=50&sections=current%2Cdaily&language=en&units=auto&key=s7wdm7ovkypadk8vf4rxe961mph99kob8voibz9p' \ -H 'accept: application/json)";
     }
-
     async function fetchTime() {
+        const display = [".btn-save", ".btn-save:hover", ];
     const timezone = document.getElementById('timezone').value;
     const response = await fetch(`https://worldtimeapi.org/api/timezone/${timezone}`);
     const data = await response.json();
@@ -38,3 +41,4 @@ async function getWeather() {
 
 window.onload = fetchTime;
 }
+
